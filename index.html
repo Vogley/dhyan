@@ -1,0 +1,99 @@
+<!DOCTYPE html5>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="static/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="static/main.js"></script>
+</head>
+<body>
+    <div id="page-container">
+        <!--Nav Bar-->
+        <div class="topnav" id="myTopnav">
+            <a href="https://www.instagram.com/dhyantherajamani/?hl=en">Instagram</a>
+            <a href="https://twitter.com/therajamani?lang=en">Twitter</a>   
+
+            <div id="center-nav">
+                
+            </div>
+
+            <div id="right-nav">
+                <a href="https://open.spotify.com/artist/1XNU0gDNcDd9egILSyuDTb">Spotify</a>
+                <a href="https://music.apple.com/us/artist/dhyan/1391304512">Apple Music</a>
+            </div>
+
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
+
+        <!--Desktop-->
+        <div class="parallax" id="img-1">
+            <div id="caption">
+                <span class="border">The Sun Never Says</span>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+                <span id="name">Dhyan</span>
+            </div>
+
+            <!--Music Player-->
+            <div id="song-list">
+                <div class="overlay">
+                    <div class="song album-title"><h2>THE SUN NEVER SAYS</h2></div>
+                    <div class="song" onclick="changeSong('intro')">        1. Intro</div>
+                    <div class="song" onclick="changeSong('lady')">         2. Lady In The Shadows</div>
+                    <div class="song" onclick="changeSong('speak')">        3. Speak Of The Devil</div>
+                    <div class="song" onclick="changeSong('fire')">         4. Fire</div>
+                    <div class="song" onclick="changeSong('back')">         5. Back In Business</div>
+                    <div class="song" onclick="changeSong('hypocrites')">   6. Hypocrites</div>
+                    <div class="song" onclick="changeSong('butter')">       7. Butter</div>
+                    <div class="song" onclick="changeSong('sun')">          8. The Sun Never Says</div>
+                </div>
+            </div>
+            <div class='music-card'>
+                <div id='toggle' onclick="toggleSongs()"></div>
+                <div id='cover-image'></div>
+                
+                <div class='wave'></div>
+                <div class='wave'></div>
+                <div class='wave'></div>
+                
+                <div class='music-info'>
+                    <h2 id="song-title" class='title'>Intro</h2>
+                    <div class='artist'>Dhyan</div>
+                </div>
+                
+                <span class="icon icon-play" aria-hidden="true" onclick="playPause()"></span>
+                <span class="icon icon-pause" aria-hidden="true" onclick="playPause()"></span>
+                
+            </div>
+        </div>
+
+        <!--Mobile-->
+        <div id="myVideo" class="parallax">
+            <video src='static/media/free.mov' nocontrols autoplay muted loop></video>
+
+            <div id="mobile-name">
+                <h1>dhyan rajamani</h1>
+            </div>
+        </div>
+        <!--Background Audio-->
+        <iframe src="static/media/silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe> 
+        <audio autoplay muted loop id="playAudio">
+                <source src="static/media/intro.mp3">
+        </audio>
+
+
+        <!--Social Media-->
+        <div class="flex-bottom">
+            <a href="https://twitter.com/therajamani?lang=en"><i class="fa fa-twitter fa-4x icon-3d"></i></a>
+            <a href="https://www.instagram.com/dhyantherajamani/?hl=en" ><i class="fa fa-instagram fa-4x icon-3d"></i></a>
+            <a href="https://open.spotify.com/artist/1XNU0gDNcDd9egILSyuDTb"><i href="" class="fa fa-spotify fa-4x icon-3d"></i></a>
+            <i href="https://music.apple.com/us/artist/dhyan/1391304512" class="fa fa-apple fa-4x icon-3d"></i>
+        </div>
+
+</body>
+</html>
