@@ -1,3 +1,5 @@
+/* Scrapped for now. May come back to it later
+
 var audio, title, ctx, dataArray, barHeight, barWidth, WIDTH, HEIGHT, x, analyser, bufferLength, src, context;
 var playing = false;
 
@@ -56,7 +58,7 @@ function renderFrame() {
   analyser.getByteFrequencyData(dataArray);
 
 
-  /* Drawing Visualizer */
+  /* Drawing Visualizer 
   ctx.fillStyle = "rgba(0,0,0)";
   ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
@@ -73,4 +75,4 @@ function renderFrame() {
 
     x += barWidth + 1;
   }
-}
+}*/
