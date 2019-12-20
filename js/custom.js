@@ -32,7 +32,6 @@ $(document).ready(function()
 	initHomeSlider();
 	initAlbumPlayer();
 	initMagic();
-	initSinglePlayer();
 
 	setHeader();
 
@@ -128,130 +127,20 @@ $(document).ready(function()
 
 	function initAlbumPlayer()
 	{
-		if($('#jplayer-1').length)
+		setTimeout(function()
 		{
-			// Duration has to be entered manually
-			var playlist = 
-			[
-				{
-					title:"Intro",
-					artist:"Dhyan",
-					mp3:"files/intro.mp3",
-					duration:"1:39"
-				},
-				{
-					title:"Lady in the Shadows",
-					artist:"Dhyan",
-					mp3:"files/lady_in_the_shadows.mp3",
-					duration:"4:12"
-				},
-				{
-					title:"Speak of the Devil",
-					artist:"Dhyan",
-					mp3:"files/speak_of_the_devil.mp3",
-					duration:"3:40"
-				},
-				{
-					title:"Fire",
-					artist:"Dhyan",
-					mp3:"files/fire.mp3",
-					duration:"3:09"
-				},
-				{
-					title:"Back in Business",
-					artist:"Dhyan",
-					mp3:"files/back_in_business.mp3",
-					duration:"3:39"
-				},
-				{
-					title:"Hypocrites",
-					artist:"Dhyan",
-					mp3:"files/hypocrites.mp3",
-					duration:"4:24"
-				},
-				{
-					title:"Butter",
-					artist:"Dhyan",
-					mp3:"files/butter.mp3",
-					duration:"3:26"
-				},
-				{
-					title:"The Sun Never Says",
-					artist:"Dhyan",
-					mp3:"files/the_sun_never_says.mp3",
-					duration:"3:37"
-				}
-			];
-
-			var options =
+			var items = $('.jp-playlist ul li > div');
+			for(var x = 0; x < items.length; x++)
 			{
-				playlistOptions:
-				{
-					autoPlay:false,
-					enableRemoveControls:false
-				},
-				play: function() // To avoid multiple jPlayers playing together.
-				{ 
-					$(this).jPlayer("pauseOthers");
-				},
-				solution: 'html',
-				supplied: 'oga, mp3',
-				useStateClassSkin: true,
-				preload: 'metadata',
-				volume: 0.2,
-				muted: false,
-				backgroundColor: '#000000',
-				cssSelectorAncestor: '#jp-container-1',
-				errorAlerts: false,
-				warningAlerts: false
-			};
-
-			var cssSel = 
-			{
-				jPlayer: "#jplayer-1",
-				cssSelectorAncestor: "#jp-container-1",
-				play: '.jp-play',
-				pause: '.jp-pause',
-				stop: '.jp-stop',
-				seekBar: '.jp-seek-bar',
-				playBar: '.jp-play-bar',
-				globalVolume: true,
-				mute: '.jp-mute',
-				unmute: '.jp-unmute',
-				volumeBar: '.jp-volume-bar',
-				volumeBarValue: '.jp-volume-bar-value',
-				volumeMax: '.jp-volume-max',
-				playbackRateBar: '.jp-playback-rate-bar',
-				playbackRateBarValue: '.jp-playback-rate-bar-value',
-				currentTime: '.jp-current-time',
-				duration: '.jp-duration',
-				title: '.jp-title',
-				fullScreen: '.jp-full-screen',
-				restoreScreen: '.jp-restore-screen',
-				repeat: '.jp-repeat',
-				repeatOff: '.jp-repeat-off',
-				gui: '.jp-gui',
-				noSolution: '.jp-no-solution'
-			};
-
-			var myPlaylist = new jPlayerPlaylist(cssSel,playlist,options);
-			
-			
-			setTimeout(function()
-			{
-				var items = $('.jp-playlist ul li > div');
-				for(var x = 0; x < items.length; x++)
-				{
-					var item = items[x];
-					var dur = playlist[x].duration;
-					var durationDiv = document.createElement('div');
-					item.setAttribute("onclick", "playSong()");
-					durationDiv.className = "song-duration";
-					durationDiv.append(dur);
-					item.append(durationDiv);
-				}
-			},200);
-		}
+				var item = items[x];
+				var dur = playlist[x].duration;
+				var durationDiv = document.createElement('div');
+				item.setAttribute("onclick", "playSong()");
+				durationDiv.className = "song-duration";
+				durationDiv.append(dur);
+				item.append(durationDiv);
+			}
+		},200);
 	}
 
 	/* 
@@ -281,48 +170,6 @@ $(document).ready(function()
 			});
 		}
 	}
-
-	/* 
-
-	7. Init Single Player
-
-	*/
-
-	function initSinglePlayer()
-	{
-		if($("#jplayer-2").length)
-		{
-			$("#jplayer-2").jPlayer({
-		ready: function () {
-			$(this).jPlayer("setMedia", {
-				title:"Better Days",
-					artist:"Bensound",
-					mp3:"files/bensound-betterdays.mp3"
-			});
-		},
-		play: function() { // To avoid multiple jPlayers playing together.
-			$(this).jPlayer("pauseOthers");
-		},
-		swfPath: "plugins/jPlayer",
-		supplied: "mp3",
-		cssSelectorAncestor: "#jp-container-2",
-		wmode: "window",
-		globalVolume: true,
-		useStateClassSkin: true,
-		autoBlur: false,
-		smoothPlayBar: true,
-		keyEnabled: true,
-		solution: 'html',
-		preload: 'metadata',
-		volume: 0.2,
-		muted: false,
-		backgroundColor: '#000000',
-		errorAlerts: false,
-		warningAlerts: false
-	});
-		}	
-	}
-
 });
 
 
